@@ -3,10 +3,10 @@
 # Python 3.7
 
 #
-# @Author: *
-# @License: *
-# @Date: *
-# @Version: *
+# @Author: Jxtopher
+# @License: CC-BY-NC-SA
+# @Date: 2019-04
+# @Version: 1
 # @Purpose: approximation de pi par la méthode de Monte-Carlo
 #           see https://fr.wikipedia.org/wiki/Méthode_de_Monte-Carlo#Détermination_de_la_valeur_de_π
 #
