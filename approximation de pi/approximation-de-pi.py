@@ -13,8 +13,6 @@
 
 import numpy as np
 
-
-
 from itertools import cycle
 import matplotlib
 matplotlib.use('Agg')
