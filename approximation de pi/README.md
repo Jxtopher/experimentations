@@ -2,5 +2,5 @@
 
 
 <p align="center">
-  <img width="100%" height="100%" src="./approximation-of-PI.svg.svg">
+  <img width="100%" height="100%" src="./approximation-of-PI.svg">
 </p>
