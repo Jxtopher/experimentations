@@ -1,4 +1,6 @@
-# Probabilities of the dice
+# Statistics on languages
+
+## Word size distribution
 
 
 <p align="center">
