@@ -1,4 +1,4 @@
-# π approximation with the Monte-Carlo method
+# UCB with two Slot Machines.
 
 
 <p align="center">
