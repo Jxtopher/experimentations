@@ -1,4 +1,4 @@
-# UCB with two Slot Machines.
+# UCB with two slot machines.
 
 
 <p align="center">
