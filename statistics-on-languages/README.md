@@ -18,6 +18,7 @@
 
 
 
+
 |      Example 2          |     l1        |        l2       |       l3        |        l4        |        l5        |        l6        |
 | :-------------------:   | :-----------: | :-------------: | :-------------: | :--------------: | :--------------: | :--------------: |
 | String 1 (s1)                      |      p  |       a |       p         |        i         |        e         |        r         |
@@ -31,7 +32,7 @@
 | Distance hamming (s1 et s2.4 =6)   |      1  |       1 |       1         |        1         |        1         |        1         |
 
 
-
+We consider the space character having the same value as the other characters. For example 2, the chosen hamming distance is the minimum calculate among all the possibilities, that is to say 3.
 
 
 <p align="center">
