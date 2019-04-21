@@ -1,3 +1,4 @@
+<center>
 <TABLE border=0>
 	<TR>
 		<TD>A</TD> 
@@ -8,3 +9,4 @@
 		<TD>E</TD>
 	</TR>
 </TABLE>
+</center>
