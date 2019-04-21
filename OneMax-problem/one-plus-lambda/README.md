@@ -1,8 +1,10 @@
-<TABLE BORDER>
+<TABLE border=0>
 	<TR>
-		<TD>A</TD> <TD>B</TD> <TD>C</TD>
+		<TD>A</TD> 
+		<TD>B</TD> 
 	</TR>
 	<TR>
-		<TD>D</TD> <TD>E</TD> <TD>F</TD>
+		<TD>D</TD> 
+		<TD>E</TD>
 	</TR>
 </TABLE>
