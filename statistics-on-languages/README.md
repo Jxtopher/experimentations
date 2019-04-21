@@ -15,6 +15,13 @@
 |String 1          | p   |     o     |        p | o |
 | Distance hamming | 0   |     1     |      0   |  1 |
 
+
+| Titre 1       |     Titre 2     |        Titre 3 |
+| :------------ | :-------------: | -------------: |
+| Colonne       |     Colonne     |        Colonne |
+| Alignée à     |   Alignée au    |      Alignée à |
+| Gauche        |     Centre      |         Droite |
+
 <p align="center">
   <img width="100%" height="100%" src="./hamming-distance.svg">
 </p>
