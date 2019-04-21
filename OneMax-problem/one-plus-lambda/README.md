@@ -1,4 +1,4 @@
-<TABLE border="0" align="center">
+<TABLE border="0" align="center" style="margin: 0px auto;">
 	<TR>
 		<TD>A</TD> 
 		<TD>B</TD> 
