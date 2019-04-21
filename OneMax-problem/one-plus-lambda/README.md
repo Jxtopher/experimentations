@@ -1,5 +1,4 @@
-<center>
-<TABLE border=0>
+<TABLE border="0" align="center">
 	<TR>
 		<TD>A</TD> 
 		<TD>B</TD> 
@@ -9,4 +8,3 @@
 		<TD>E</TD>
 	</TR>
 </TABLE>
-</center>
