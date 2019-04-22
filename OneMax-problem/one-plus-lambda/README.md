@@ -1,4 +1,4 @@
-* mutation operator : flipbit with parameter c
+* mutation operator : flipbit with parameter c/N
 * Algo : (1 + lambda)-ES
 * Problem : Onemax N=1000
 
