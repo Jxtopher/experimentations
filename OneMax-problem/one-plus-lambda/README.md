@@ -1,6 +1,6 @@
 * mutation operator : flipbit with parameter c
 * Algo : (1 + lambda)-ES
-* Problem : Onemax
+* Problem : Onemax N=1000
 
 <TABLE border="0" align="center" style="margin: 0px auto;">
 	<TR>
