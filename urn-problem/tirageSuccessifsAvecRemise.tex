@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[francais,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage[paperwidth=10cm,paperheight=10cm,margin=0.05cm]{geometry}
+
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usepackage{filecontents}
+
+% The data files, written on the first run.
+\begin{filecontents}{div_soft.data}
+# N,round,std
+100,541.131,130.084
+200,1224.45,259.711
+300,1962.51,389.779
+400,2736.34,519.793
+500,3536.34,649.199
+600,4573.9,828.107
+700,5362.93,941.16
+800,6229.94,1070.33
+900,7107.27,1194.91
+1000,8034.76,1323.17
+\end{filecontents}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{tikzpicture}
+\begin{axis}[
+	height=9.5cm,
+	width=9.5cm,
+	xlabel={Number of elements},
+	ylabel={Number of iterations needed to explore all elements},
+	grid=major, grid style={dashed,gray!30}
+]
+
+% Graph column 2 versus column 0
+\addplot+ [error bars/.cd, y explicit, y dir=both,] table[x index=0,y index=1, y error index=2, col sep=comma] {div_soft.data};
+%\addlegendentry{Column 3}% y index+1 since humans count from 1
+
+
+\end{axis}
+
+
+\end{tikzpicture}
+\end{document}
