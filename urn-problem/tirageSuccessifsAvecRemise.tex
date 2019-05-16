@@ -6,13 +6,12 @@
 
 \usepackage[paperwidth=10cm,paperheight=10cm,margin=0.05cm]{geometry}
 
-
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
 
 \usepackage{filecontents}
 
-% The data files, written on the first run.
+%% ** the data files **
 \begin{filecontents}{div_soft.data}
 # N,round,std
 100,541.131,130.084
@@ -26,7 +25,9 @@
 900,7107.27,1194.91
 1000,8034.76,1323.17
 \end{filecontents}
+%% **   END        **
 
+%%---------------------------------
 \begin{document}
 \pagestyle{empty}
 
@@ -39,13 +40,10 @@
 	grid=major, grid style={dashed,gray!30}
 ]
 
-% Graph column 2 versus column 0
 \addplot+ [error bars/.cd, y explicit, y dir=both,] table[x index=0,y index=1, y error index=2, col sep=comma] {div_soft.data};
 %\addlegendentry{Column 3}% y index+1 since humans count from 1
 
-
 \end{axis}
-
 
 \end{tikzpicture}
 \end{document}
