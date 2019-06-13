@@ -4,9 +4,9 @@
 # Python 3.7
 
 #
-# @Author: *
+# @Author: Jxtopher
 # @License: *
-# @Date: *
+# @Date: 2019-06
 # @Version: 1
 # @Purpose: https://en.wikipedia.org/wiki/Component_(graph_theory)
 #           pip install networkx
