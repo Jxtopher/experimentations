@@ -1,4 +1,4 @@
-# Results
+# Experimentation
 
 * OneMax problem
 * approximation of PI
