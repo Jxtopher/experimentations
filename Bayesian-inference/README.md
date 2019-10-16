@@ -2,7 +2,7 @@
 # Bayesian inference
 
 
-## Dynamic on an experiment (with Dice 28)
+## Dynamic on an experiment (with Dice 26)
 
 <p align="center">
   <img width="100%" height="100%" src="./dynamic-oneRun-dice26.svg">
