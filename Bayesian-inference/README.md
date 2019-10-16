@@ -7,3 +7,9 @@
 <p align="center">
   <img width="100%" height="100%" src="./dynamic-oneRun-dice28.svg">
 </p>
+
+## Convergence time
+
+<p align="center">
+  <img width="100%" height="100%" src="./convergence-time.svg">
+</p>
