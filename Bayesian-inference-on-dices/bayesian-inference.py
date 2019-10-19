@@ -19,14 +19,14 @@
 import numpy as np
 import plot
 
-y = [[]]* len([2, 3, 5, 7, 10, 14, 16, 18, 24, 26, 28, 30, 32, 34, 36, 50, 60, 100])
+#y = [[]]* len([2, 3, 5, 7, 10, 14, 16, 18, 24, 26, 28, 30, 32, 34, 36, 50, 60, 100])
 
 def bayesian_inference(dices : list, id_dice : int, iteration_max : int = 50):
 	# varibales
-	prob_final = [0] * len(dices)			# p(A|B)
-	a_priori = [1/len(dices)] * len(dices)	# p(B|A)
-	estimation = [0] * len(dices)			# p(A)
-	surface = 0								# p(B)
+	prob_final = [0] * len(dices)             # p(A|B)
+	a_priori = [1/len(dices)] * len(dices)    # p(B|A)
+	estimation = [0] * len(dices)             # p(A)
+	surface = 0                               # p(B)
 
 	
 	# Probibilite  de l'hypthèse
