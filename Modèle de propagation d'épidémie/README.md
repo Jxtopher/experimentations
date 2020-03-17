@@ -12,6 +12,6 @@ Le **modèle de mobilité** décrire un mouvement brownien des agents dans un es
 
 ## Politique publique : la quarantaine
 
-**Question** : La quarantaine de la population symptomatique est-elle une mesure efficace pour contrôler une épidémie ? 
+**Question** : La quarantaine de la population symptomatique est-elle une mesure efficace pour contrôler une épidémie ? Nous faisions hypothèse que seules les personnes symptomatiques peuvent être identifié pour être mise en quarantaine. Cela correspondant au stade 2 du plan de réaction français face à la pandémie de coronavirus.
 
 Nous analysons deux hypothèses : un virus produisant une population asymptomatique et sans une population asymptomatique.
