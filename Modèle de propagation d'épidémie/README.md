@@ -8,3 +8,10 @@ Le **modèle de mobilité** décrire un mouvement brownien des agents dans un es
 <p align="center">
   <img width="60%" height="60%" src="./schéma/Model SASRI.png">
 </p>
+
+
+## Politique publique : la quarantaine
+
+**Question** : La quarantaine de la population symptomatique est-elle une mesure efficace pour contrôler une épidémie ? 
+
+Nous analysons deux hypothèses : un virus produisant une population asymptomatique et sans une population asymptomatique.
