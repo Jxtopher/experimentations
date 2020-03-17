@@ -1,4 +1,4 @@
-# modèle SASRI 
+# Modèle SASRI 
 
 ## Description du modèle SASRI
 
