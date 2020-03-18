@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SASRI model</title>
+	<LINK href="./index.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="top">
+	
+	</div>
+	
+	
+	<div class="corps">
+	<div class="tableau">		
+		<div id="corps_right" class="StyleWrite">
+			xxx
+		</div>
+	</div>
+	</div>
+	
+	<footer>
+		xx
+	</footer>
+</body>
+</html>
