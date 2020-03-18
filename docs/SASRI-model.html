@@ -14,7 +14,7 @@
 		<div id="corps_right" class="StyleWrite">
 			<h1>Modèle SASRI</h1>
 			<h2>Description du modèle SASRI</h2>
-			<p>Le modèle SASRI intègre deux sous modèles : un <b>modèle de mobilité</b> et un modèle à compartiment d'épidémiologiques. Le modèle de mobilité décrire un mouvement brownien des agents dans un espace à deux dimensions. Le <b>modèle à compartiment d'épidémiologiques</b> (cf. ci-dessous) définie les probabilités de transition entre les différents état de l'agent. Un agent peut prendre les états suivant : sain, asymptomatique, symptomatique, rétablie, mort, immuniser. Lors de la transmission et du risque de mortalité, ce modèle ne tient pas compte des spécificités liées à la tranche d'âge, au sexe et de l'état de santé. </p>
+			<p>Le modèle SASRI intègre deux sous modèles : un <b>modèle de mobilité</b> et un modèle à compartiment d'épidémiologiques. Le modèle de mobilité décrire un mouvement brownien des agents dans un espace à deux dimensions. Un agent en quarantaine est immobile. Le <b>modèle à compartiment d'épidémiologiques</b> (cf. ci-dessous) définie les probabilités de transition entre les différents état de l'agent. Un agent peut prendre les états suivant : sain, asymptomatique, symptomatique, rétablie, mort, immuniser. Lors de la transmission et du risque de mortalité, ce modèle ne tient pas compte des spécificités liées à la tranche d'âge, au sexe et de l'état de santé. </p>
 			<p align="center">
 		  	<img width="60%" height="60%" src="./figs/Model SASRI.png">
 			</p>
@@ -73,11 +73,20 @@
 			  </tr>
 			</table>
 			<h3>Quarantaine <i>versus</i> sans quarantaine</h3>
-			La figure ci-dessous montre le taux de contamination en fonction de la quarantaine de deux scénarios : une infection avec une population asymptomatique et une infection sans une population asymptomatique. La mise en place d'une quarantaine des personnes identifiée infectée à un impact significatif sur la réduction du taux de contamination total. Les infection avec une période asymptomatique faible un ou deux ticks réduit le temps taux de contamination. Dans ce cas de figure, le stade 2 du plan de préventions apporte une solution efficace. Dans le cas, d'une période asymptomatique plus longue, l'efficacité du stade 2 se trouve de facto limite puisque le virus continue de circuler.
+			La figure ci-dessous montre le taux de contamination en fonction de la quarantaine de deux scénarios : une infection avec une population asymptomatique et une infection sans une population asymptomatique. 100 expériences est calculer. La mise en place d'une quarantaine des personnes identifiée infectée à un impact significatif sur la réduction du taux de contamination total. Les infection avec une période asymptomatique faible un ou deux ticks réduit le temps taux de contamination. Dans ce cas de figure, le stade 2 du plan de préventions apporte une solution efficace. Dans le cas, d'une période asymptomatique plus longue, l'efficacité du stade 2 se trouve de facto limite puisque le virus continue de circuler.
 			<p align="center">
 				<img width="60%" height="60%" src="./figs/effectiveness-of-quarantine.svg">
 			</p>
 			<h3>Évolution de l'épidémie en fonction de la quarantaine</h3>
+			<p align="center">
+				<table class="tg">
+					<tr>
+					  <th class="tg-0a7q"><img width="60%" height="60%" src="./figs/dynamic-of-quarantine-pop-asymptomatique.svg"></th>
+					  <th class="tg-0a7q"><img width="60%" height="60%" src="./figs/dynamic-of-quarantine-pop-sans-asymptomatique.svg"></th>
+					</tr>
+				  </table>
+				
+			</p>
 		</div>
 	</div>
 	
