@@ -1,0 +1,226 @@
+body {
+	background-color: #f1f1f1;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	margin: 0;
+	min-width:800px
+}
+
+div.top {
+	background-color: #d9d9d9;
+	background-image: url("pictures/banner_top-blue.png");
+	padding: 0 0px;
+	height: 60px;
+}
+
+footer {
+	/*background-color: #71F592;*/
+	background-color: rgb(204, 228, 255);
+	padding: 0 0px;
+	height: 20px;
+	text-align: center;
+	border-top: solid 1px black;
+}
+
+div.corps {
+	background-color: #ffffff;
+	border-radius: 0px;
+	box-shadow:8px 0 8px -10px #000000,-8px 0 8px -10px #000000;
+	margin-top:0px;
+	margin-right:40px;
+	margin-left:40px;
+}
+
+div.corps_tool_bar {
+	background-color:yellow;
+}
+
+div.tableau {
+	margin-left: auto;
+	margin-right: auto;
+	margin:0;
+	display: table;
+	width: 100%;
+}
+/*********************************************************************************/
+/* MENU                                                                          */
+/*********************************************************************************/
+#menu-wrapper {
+	background: #f1f1f1;
+}
+
+#menu {
+	background-color: rgb(204, 228, 255); /* #d9d9d9;*/
+	height: 50px;
+	border-bottom: solid 1px black;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+	text-align: center;
+}
+
+#menu li {
+	display: inline-block;
+}
+
+#menu a {
+	display: table-cell;
+	letter-spacing: 1px;
+	padding: 0px 30px;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.80em;
+	line-height: 50px;
+	border: none;
+	color: #000;
+	font-size: 1em;
+	font-weight: 700;
+}
+
+#menu a:hover, #menu .current_page_item a {
+	text-decoration: none;
+}
+
+#menu .current_page_item a {
+	background: rgba(108, 163, 226, 0.623);
+}
+
+ul.menu_main_list li a {
+	text-decoration: none;
+	border-radius: 10px;
+	color:black;
+	line-height: 100px;
+}
+ul.menu_main_list li:hover {
+	text-decoration: none;
+	border-radius: 10px;
+	background-color:rgba(108, 163, 226, 0.623);
+}
+
+#corps_right {
+	display: block;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:20px;
+	padding-left:20px;
+}
+
+/*********************************************************************************/
+/* MENU Left                                                                     */
+/*********************************************************************************/
+#corps_left_menu {
+	display: table-cell;
+	width: 200px;
+	margin-top: 10px;
+	border-right: solid 1px black;
+}
+
+#corps_left_menu li a {
+	border-bottom: dotted 1px black;
+	text-decoration: none;
+	height: 32px;
+	voice-family: "\"}\""; 
+	voice-family: inherit;
+}
+
+#corps_left_menu li a:link, #corps_left_menu li a:visited {
+	color: #777;
+	display: block;
+	padding: 8px 0 0 20px;
+}
+
+#corps_left_menu li a:hover {
+	color: #257EB7;
+	border-left: solid 4px red;
+	padding: 8px 0 0 20px;
+}
+
+#corps_left_menu li a:active {
+	color: #fff;
+	border-left: solid 4px red;
+	padding: 8px 0 0 20px;
+}
+
+#corps_left_menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/*********************************************************************************/
+/* Texte                                                                     */
+/*********************************************************************************/
+.StyleWrite p {
+	text-align : justify;
+}
+
+.StyleWrite h1 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite h2 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite h3 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite h4 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite h5 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite h6 {
+	border-bottom: 1px dotted;
+}
+
+.StyleWrite img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.StyleWrite blockquote {
+	border-radius: 10px;
+	background: #E0F8E0;
+	border-left: 10px solid #ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+
+.StyleWrite table {
+        margin-left: auto;
+        margin-right: auto;
+}
+
+/*.StyleWrite h1:first-letter {
+color:red;
+}*/
+
+/*********************************************************************************/
+/* Bibtex                                                                        */
+/*********************************************************************************/
+.bibmenu {} /* disables the [bibtex] and the like */
+.bibanchor {} 
+.theader {}
+.sheader {
+	border-bottom: 2px dotted;
+	text-align: center;
+	padding: 20px 0 0 0;
+	font-size: 20px;
+}
+.date {background-color: blue; }
+.btb-header { }
+.rheader {  font-size: large }
+.bibref {  padding:3px; padding-left:15px;  vertical-align:top;}
+.bibtitle { font-weight:bold; }
+.bibbooktitle { font-style:italic; }
