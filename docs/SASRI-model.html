@@ -13,15 +13,27 @@
 	<div class="corps">	
 		<div id="corps_right" class="StyleWrite">
 			<h1>Modèle SASI</h1>
-			Cette étude vise à examiner l'impact de politique publique pour contrôler une épidémie à travers deux types d'agent infectieux. Nous exaimons différante politique publique afin de contrôler un épidémie : l'efficacité de la quarantaine, diagnostique rapide et l'immunité de groupe.
+			Cette étude vise à examiner l'impact de politique publique pour contrôler une épidémie à travers deux types d'agent infectieux. Nous exaimons différante politique publique afin de contrôler un épidémie : l'efficacité de la quarantaine, diagnostic rapide et l'immunité de groupe.
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h2>Description du modèle SASI</h2>
 			<p>Le modèle SASI intègre deux sous modèles : un <b>modèle de mobilité</b> et un modèle à compartiment d'épidémiologiques. Le modèle de mobilité décrire un mouvement brownien des agents dans un espace à deux dimensions. Un agent en quarantaine est immobile. Le <b>modèle à compartiment d'épidémiologiques</b> (cf. ci-dessous) définie les probabilités de transition entre les différents état de l'agent. Un agent peut prendre les états suivant : sain, asymptomatique, symptomatique, rétablie, mort, immuniser.</p>
 			<p align="center">
 			  <img width="60%" height="60%" src="./figs/Model SASI.svg"><br>
 			  <center><b>Figure 1. </b>Modèle épidémiologique à compartiment</center>
 			</p>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h2>Deux scénarios épidémique</h2>
 			<p>Nous analysons deux hypothèses : un virus produisant une population asymptomatique (scénario pop-asymptomatique) et sans une population asymptomatique (scénario pop-sans-asymptomatique).</p>
+			
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Paramètres</h3>
 			<p>Le tableau ci-dessous donne l'ensemble des paramètres du modèle pour les deux scénarios de virus différents : pop-asymptomatique, pop-sans-asymptomatique. Pour les deux scénarios, la période de l'infection d'un agent dure en moyenne 20 ticks. C'est-à-dire le nombre de ticks d'un agent en état asymptomatique plus le nombre de ticks d'un agent en état symptomatique correspond en moyenne à une période de 20 ticks.</p>
 			<p>Les paramètres p-sains et p-vacciner sont étudié dans la section immunité de groupe.</p>
@@ -81,6 +93,10 @@
 			    <td class="tg-c3ow" colspan="2">NaN</td>
 			  </tr>
 			</table>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Comparison de l'évolution de l'épidémie des deux sénarios</h3>
 			<table style="border:none;">
 				<tr>
@@ -98,6 +114,10 @@
 			</table>
 			<h2>L'efficacité de la quarantaine</h2>
 			<p><b>Question</b> : La quarantaine de la population symptomatique est-elle une mesure efficace pour contrôler une épidémie ? Nous faisions hypothèse que seules les personnes symptomatiques peuvent être identifié pour être mise en quarantaine. Cela correspondant au stade 2 du plan de réaction français face à la pandémie de coronavirus.</p>
+			
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Impact de la quarantaine de la population symptomatique</h3>
 			La figure ci-dessous montre le taux de contamination en fonction de la quarantaine de deux scénarios : une infection avec une population asymptomatique et une infection sans une population asymptomatique. Le calcul des statistiques est basé sur 100 expériences. La mise en place d'une quarantaine des personnes identifiée infectée à un impact significatif sur la réduction du taux de contamination total. Les infection avec une période asymptomatique faible un ou deux ticks réduit le temps taux de contamination. Dans ce cas de figure, le stade 2 du plan de préventions apporte une solution efficace. Dans le cas d'une phase asymptomatique sur longue période, l'efficacité du stade 2 (l'application de la quarantaine à porteur symptomatique) se trouve de facto limite puisque le virus continue de circuler.
 			<p align="center">
@@ -105,6 +125,9 @@
 				<center><b>Figure 4. </b></center>
 			</p>
 
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Évolution de l'épidémie en fonction de la quarantaine</h3>
 			<p align="center">
 				<table style="border:none;">
@@ -124,25 +147,57 @@
 				</table>
 				
 			</p>
-			<h2>Diagnostique rapide d'une maladie infectieuse</h2>
-			Dans la section précédent discutant de la mise en quarantaine des symptomatiques, nous observons la limite de l'efficacité de cette méthode à cause du grand nombre asymptomatique qui propage l'infection.
 
+			<h3>Impact de la densité sur l'efficacité de la quarantaine</h3>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
+			<h2>diagnostic rapide d'une maladie infectieuse</h2>
+			Dans la section précédent discutant de la mise en quarantaine des symptomatiques, nous observons la limite de l'efficacité de cette méthode à cause du grand nombre asymptomatique qui propage l'infection. Nous étudions l'utilisation de diagnostic rapide pour identifier les porteurs asymptomatiques afin de les mettre en quarantaine. Chaque jour, une proportion de la population est sectionnée aléatoirement reçoive un test rapide, si le test est positif, les porteurs asymptomatiques est mise en quarantaine. D'après la figure 7, idéalement 30% de la population tirée aléatoirement doit utiliser un test rapide chaque jour pour une faible proportion d’infecté totale de 25% de la population.
+
+			<p align="center">
+				<img width="60%" height="60%" src="./figs/diagnostic-rapide.svg">
+				<center><b>Figure 7.</b> Scénario pop-asymptomatique, diagnostic rapide et mise en quarantaine.</center>
+			</p>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h2>L'immunité de groupe</h2>
 			L'immunité de groupe est acquise par l'immunisation naturelle ou par la vaccination. 
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Couverture vaccinale</h3>
 			Dans cette étude (cf. figure x), la couverture vaccinale est effective avant le déclenchement de l'épidémie.  Nous évaluions de degrés de couverture en fonction de la proportion d'agents infecter durant l'épidémie. L'immunité est considérée comme acquise définitivement, c'est-à-dire que la probabilité de devenir sains est égale à zéro. 
 			<p align="center">
 				<img width="60%" height="60%" src="./figs/couverture-vaccinale.svg">
-				<center><b>Figure 7.</b> Efficacité de la couverture vaccinale pour le scénario pop-asymptomatique.</center>
+				<center><b>Figure 8.</b> Efficacité de la couverture vaccinale pour le scénario pop-asymptomatique.</center>
 			</p>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Epidémie saisonnière</h3>
 			<p align="center">
 				<img width="60%" height="60%" src="./figs/dynamic-group-immunity.png">
-				<center><b>Figure 8.</b></center>
+				<center><b>Figure 9.</b></center>
 			</p>
+
+			<!-- ************************************************************** -->
+			<!--                                                                -->
+			<!-- ************************************************************** -->
 			<h3>Durée de l'épidémie</h3>
 
 			<h2>Conclusions</h2>
+
+			<h2>Bibliographie</h2>
+			<ul>
+				<li>[1] <a href=https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf>Impact of non-pharmaceutical interventions (NPIs) to reduce COVID19 mortality and healthcare demand</a></li>
+				<li>[1](Archive) <a href=https://web.archive.org/web/20200321134231/https://www.imperial.ac.uk/media/imperial-college/medicine/sph/ide/gida-fellowships/Imperial-College-COVID19-NPI-modelling-16-03-2020.pdf>Impact of non-pharmaceutical interventions (NPIs) to reduce COVID19 mortality and healthcare demand</a></li>
+			</ul>
 		</div>
 	</div>
 	
