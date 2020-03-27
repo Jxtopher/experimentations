@@ -1,5 +1,7 @@
 # Loi de Benford
 
+Sources des données : <a hreaf=https://oeis.org/>oeis</a>
+
 <table style="border:none;">
   <tr>
     <td style="border:none;">

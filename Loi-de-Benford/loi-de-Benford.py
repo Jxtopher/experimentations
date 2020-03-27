@@ -47,7 +47,7 @@ if __name__ == "__main__":
         ["Powers of 2", "https://oeis.org/A000079/b000079.txt"],
         ["The positive integers"," https://oeis.org/A000027/b000027.txt"]
     ]
-    dwfile(list_of_sequences[4][1], temporary_file)
+    dwfile(list_of_sequences[0][1], temporary_file)
     dataset = loadfile(temporary_file)
     tab = stat(dataset)
-    plot(tab, list_of_sequences[4][0])
+    plot(tab, list_of_sequences[0][0])
