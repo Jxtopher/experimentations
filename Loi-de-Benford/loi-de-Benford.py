@@ -6,13 +6,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
+import urllib.request
 
 from pylab import savefig
 
-# The prime numbers :https://oeis.org/A000040/a000040.txt
-# Fibonacci numbers : https://oeis.org/A000045/b000045.txt
-# Pascal's triangle read by rows :https://oeis.org/A007318/b007318.txt
-# Powers of 2 : https://oeis.org/A000079/b000079.txt
+
+
+def dwfile(url : str, temporary_file : str):
+    urllib.request.urlretrieve(url, temporary_file)
 
 def loadfile(pathfile : str) -> pd.DataFrame  :
     dataset = pd.read_csv(pathfile, sep=" ", names=["num","value"])
@@ -38,20 +39,15 @@ def plot(tab : list, title :str):
     plt.savefig(title+".svg")
 
 if __name__ == "__main__":
-    dataset = loadfile("a000040.txt")
+    temporary_file = '/tmp/data.txt'
+    list_of_sequences = [
+        ["The prime numbers", "https://oeis.org/A000040/a000040.txt"],
+        ["Fibonacci numbers", "https://oeis.org/A000045/b000045.txt"],
+        ["Pascal's triangle read by rows", "https://oeis.org/A007318/b007318.txt"],
+        ["Powers of 2", "https://oeis.org/A000079/b000079.txt"],
+        ["The positive integers"," https://oeis.org/A000027/b000027.txt"]
+    ]
+    dwfile(list_of_sequences[4][1], temporary_file)
+    dataset = loadfile(temporary_file)
     tab = stat(dataset)
-    plot(tab, "The prime numbers")
-
-    dataset = loadfile("b000045.txt")
-    tab = stat(dataset)
-    plot(tab, "Fibonacci numbers")
-
-    dataset = loadfile("b007318.txt")
-    tab = stat(dataset)
-    plot(tab, "Pascal's triangle read by rows")
-
-    dataset = loadfile("b000079.txt")
-    tab = stat(dataset)
-    plot(tab, "Powers of 2")
-
-    
+    plot(tab, list_of_sequences[4][0])
