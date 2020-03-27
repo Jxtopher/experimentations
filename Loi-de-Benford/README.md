@@ -1,18 +1,19 @@
+# Loi de Benford
 <p align="center">
-  <img width="100%" height="100%" src="./Fibonacci numbers.svg">
+  <img width="100%" height="100%" src="./plots/Fibonacci numbers.svg">
 </p>
 
 
 <p align="center">
-  <img width="100%" height="100%" src="./Pascal's triangle read by rows.svg">
+  <img width="100%" height="100%" src="./plots/Pascal's triangle read by rows.svg">
 </p>
 
 <p align="center">
-  <img width="100%" height="100%" src="./Powers of 2.svg">
+  <img width="100%" height="100%" src="./plots/Powers of 2.svg">
 </p>
 
 <p align="center">
-  <img width="100%" height="100%" src="./The prime numbers.svg">
+  <img width="100%" height="100%" src="./plots/The prime numbers.svg">
 </p>
 
 
