@@ -1,6 +1,7 @@
 # Loi de Benford
 
-Sources des données : <a hreaf=https://oeis.org/>oeis</a>
+See : <a href=https://fr.wikipedia.org/wiki/Loi_de_Benford>Loi de Benford</a>
+Sources des données : <a href=https://oeis.org/>oeis</a>
 
 <table style="border:none;">
   <tr>
