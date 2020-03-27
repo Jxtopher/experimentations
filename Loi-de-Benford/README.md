@@ -6,9 +6,6 @@
       <img width="100%" height="100%" src="./plots/The positive integers.svg">
     </td>
     <td style="border:none;">
-      <img width="100%" height="100%" src="./plots/Pascal's triangle read by rows.svg">
-    </td>
-    <td style="border:none;">
       <img width="100%" height="100%" src="./plots/Powers of 2.svg">
     </td>
     <td style="border:none;">
@@ -20,7 +17,7 @@
       <img width="100%" height="100%" src="./plots/Fibonacci numbers.svg">
     </td>
     <td style="border:none;">
-      <img width="100%" height="100%" src="./plots/x.svg">
+      <img width="100%" height="100%" src="./plots/Pascal's triangle read by rows.svg">
     </td>
     <td style="border:none;">
       <img width="100%" height="100%" src="./plots/x.svg">
