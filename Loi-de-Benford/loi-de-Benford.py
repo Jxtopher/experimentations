@@ -41,6 +41,7 @@ def plot(tab : list, title :str):
 if __name__ == "__main__":
     temporary_file = '/tmp/data.txt'
     list_of_sequences = [
+        ["The nonnegative even numbers", "https://oeis.org/A005843/b005843.txt"],
         ["The prime numbers", "https://oeis.org/A000040/a000040.txt"],
         ["Fibonacci numbers", "https://oeis.org/A000045/b000045.txt"],
         ["Pascal's triangle read by rows", "https://oeis.org/A007318/b007318.txt"],

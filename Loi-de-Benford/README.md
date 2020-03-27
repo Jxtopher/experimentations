@@ -24,7 +24,7 @@ Sources des données : <a hreaf=https://oeis.org/>oeis</a>
       <img width="100%" height="100%" src="./plots/The prime numbers.svg">
     </td>
     <td style="border:none;">
-      <img width="100%" height="100%" src="./plots/x.svg">
+      <img width="100%" height="100%" src="./plots/The nonnegative even numbers.svg">
     </td>
   </tr>
 </table>
