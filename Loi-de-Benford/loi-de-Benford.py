@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+from tempfile import NamedTemporaryFile
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -12,7 +13,7 @@ from pylab import savefig
 
 
 
-def dwfile(url : str, temporary_file : str):
+def dwfile(url : str, temporary_file : str) -> None:
     urllib.request.urlretrieve(url, temporary_file)
 
 def loadfile(pathfile : str) -> pd.DataFrame  :
@@ -29,18 +30,19 @@ def stat(dataset : pd.DataFrame) -> list:
     sum = np.sum(tab)
     return (tab /sum)*100
 
-def plot(tab : list, title :str):
+def plot(tab : list, title :str) -> None:
     fig, ax = plt.subplots(figsize=(5, 5))
     plt.bar(range(1, 10), tab)
     plt.xticks(range(1, 10))
-    plt.xlabel("Pourcentage")
-    plt.ylabel("Premier chiffre des nombres")
-    plt.title(title)
+    plt.xlabel("Pourcentage", size="large")
+    plt.ylabel("Premier chiffre des nombres", size="large")
+    plt.title(title, size="x-large")
     plt.savefig(title+".svg")
 
 if __name__ == "__main__":
-    temporary_file = '/tmp/data.txt'
+    temporary_file = NamedTemporaryFile().name
     list_of_sequences = [
+        ["Triangular numbers", "https://oeis.org/A000217/b000217.txt"],
         ["The nonnegative even numbers", "https://oeis.org/A005843/b005843.txt"],
         ["The prime numbers", "https://oeis.org/A000040/a000040.txt"],
         ["Fibonacci numbers", "https://oeis.org/A000045/b000045.txt"],
@@ -48,7 +50,9 @@ if __name__ == "__main__":
         ["Powers of 2", "https://oeis.org/A000079/b000079.txt"],
         ["The positive integers"," https://oeis.org/A000027/b000027.txt"]
     ]
-    dwfile(list_of_sequences[0][1], temporary_file)
-    dataset = loadfile(temporary_file)
-    tab = stat(dataset)
-    plot(tab, list_of_sequences[0][0])
+
+    for i in range(0, len(list_of_sequences)):
+        dwfile(list_of_sequences[i][1], temporary_file)
+        dataset = loadfile(temporary_file)
+        tab = stat(dataset)
+        plot(tab, list_of_sequences[i][0])
