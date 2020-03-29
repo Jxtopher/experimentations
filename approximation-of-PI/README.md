@@ -1,7 +1,7 @@
 # π approximation with the Monte-Carlo method
 
 <p align="center">
-  <img width="100%" height="100%" src="./animation.gif">
+  <img width="456" height="588" src="./animation.gif">
 </p>
 
 
