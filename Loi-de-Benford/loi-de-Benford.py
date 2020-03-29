@@ -51,8 +51,9 @@ if __name__ == "__main__":
         ["The positive integers"," https://oeis.org/A000027/b000027.txt"]
     ]
 
-    for i in range(0, len(list_of_sequences)):
-        dwfile(list_of_sequences[i][1], temporary_file)
-        dataset = loadfile(temporary_file)
-        tab = stat(dataset)
-        plot(tab, list_of_sequences[i][0])
+    # for i in range(0, len(list_of_sequences)):
+    i = 0
+    dwfile(list_of_sequences[i][1], temporary_file)
+    dataset = loadfile(temporary_file)
+    tab = stat(dataset)
+    plot(tab, list_of_sequences[i][0])
