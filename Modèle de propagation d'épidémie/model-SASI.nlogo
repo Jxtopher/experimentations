@@ -526,7 +526,7 @@ density
 density
 0
 2
-0.2
+0.04
 0.01
 1
 NIL
