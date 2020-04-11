@@ -16,10 +16,20 @@
 			Cette étude vise à examiner l'impact de politique publique pour contrôler une épidémie à travers deux types d'agent infectieux. Nous exaimons différante politique publique afin de contrôler un épidémie : l'efficacité de la quarantaine, diagnostic rapide et l'immunité de groupe.
 
 			<p align="center">
+			<div>
+				<button onclick="hide()">Hide</button>
+				<button onclick="show()">Show</button><br>
 				<img width="480px" height="480px" src="./figs-SASI-model/illustration.gif"><br>
-				<center>Figure 1. Illustration du modèle SARI. Vert : sains | Jaune : asymptomatique | Rouge : symptomatique | Bleu : immuniser</center>
-			</p>
-			
+				<script type="text/javascript">
+					function hide(){
+						document.getElementById('image').style='display:none';
+					}
+					function show(){
+						document.getElementById('image').style='display:block';
+					}
+				</script>
+				Figure 1. Illustration du modèle SARI. Vert : sains | Jaune : asymptomatique | Rouge : symptomatique | Bleu : immuniser
+			</div>
 
 			<!-- ************************************************************** -->
 			<!--                                                                -->
