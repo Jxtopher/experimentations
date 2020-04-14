@@ -11,6 +11,8 @@ turtles-own [
   statistique_nb_ticks_asymptomatique
   statistique_nb_ticks_symptomatique
   diagnostique-rapide-quarantaine
+  patient-number ;
+  vitesse-de-deplacement
 ]
 
 
@@ -26,6 +28,11 @@ to setup
     setxy random-xcor random-ycor
     set shape "circle"
     set size 1
+    ifelse who mod 2 = 0[
+    set vitesse-de-deplacement vitesse-de-deplacement-groupe
+    ] [
+      set vitesse-de-deplacement 1
+    ]
   ]
 
 ;  ask n-of (n * p-vacciner)  turtles [
@@ -35,6 +42,7 @@ to setup
   ; patient zero
   ask n-of nombre-de-patient-zero turtles [
     set state 1
+    set patient-number 0
   ]
   ;export-view (word "word-" ticks ".jpg")
   setColor
@@ -56,12 +64,12 @@ end
 to mobility
   ifelse quarantaine [
     ask turtles with [state != 2 and state != 4  and diagnostique-rapide-quarantaine != true] [
-      fd 1
+      fd vitesse-de-deplacement
       set heading heading + random 240
     ]
   ] [
     ask turtles  with [state != 4 and diagnostique-rapide-quarantaine != true] [
-      fd 1
+      fd vitesse-de-deplacement
       set heading heading + random 240
     ]
   ]
@@ -81,9 +89,13 @@ end
 to transition
   ask turtles [
     if state = 0 [; Sains -> asymptomatiques
-      ifelse random-float 1 < p-asymptomatiques
-      and 1 <= count turtles with [distance myself < rayon and (state = 1 or state = 2)] [
+      let infected-agent one-of turtles with [distance myself < rayon and (state = 1 or state = 2)]
+      ifelse random-float 1 < p-asymptomatiques and infected-agent != nobody [
         set next_state 1
+        if propagation-network = true [
+          create-link-from infected-agent
+        ]
+        set patient-number [patient-number] of infected-agent + 1
       ] [
        if random-float 1 < p-vacciner [
           set next_state 6
@@ -543,6 +555,54 @@ count turtles
 1
 11
 
+SWITCH
+209
+642
+381
+675
+propagation-network
+propagation-network
+0
+1
+-1000
+
+MONITOR
+429
+737
+586
+782
+Nombre total d'infecter g1
+sum [count out-link-neighbors] of turtles with [ who mod 2 = 0]
+17
+1
+11
+
+MONITOR
+590
+737
+1020
+782
+Nombre total d'infecter g2
+sum [count out-link-neighbors] of turtles with [ who mod 2 = 1]
+17
+1
+11
+
+SLIDER
+189
+744
+415
+777
+vitesse-de-deplacement-groupe
+vitesse-de-deplacement-groupe
+1
+5
+1.0
+0.01
+1
+NIL
+HORIZONTAL
+
 @#$#@#$#@
 netlogo-headless.bat --threads 8 --model model.nlogo --experiment experiment --table -
 
@@ -903,8 +963,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -935,8 +995,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-sans-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -967,8 +1027,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -999,8 +1059,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-sans-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -1029,8 +1089,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -1060,8 +1120,8 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="scenarios">
       <value value="&quot;pop-asymptomatique&quot;"/>
     </enumeratedValueSet>
-    <enumeratedValueSet variable="n">
-      <value value="1000"/>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
     </enumeratedValueSet>
     <enumeratedValueSet variable="rayon">
       <value value="4"/>
@@ -1089,6 +1149,42 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="p-vacciner">
       <value value="0"/>
     </enumeratedValueSet>
+  </experiment>
+  <experiment name="exp2-vitesse-de-deplacement-groupe" repetitions="40" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>count turtles</metric>
+    <metric>mean [statistique_nb_ticks_asymptomatique] of turtles with [state != 0]</metric>
+    <metric>mean [statistique_nb_ticks_symptomatique] of turtles with [state != 0]</metric>
+    <metric>sum [count out-link-neighbors] of turtles with [ who mod 2 = 0]</metric>
+    <metric>sum [count out-link-neighbors] of turtles with [ who mod 2 = 1]</metric>
+    <metric>count turtles with [state = 3 and who mod 2 = 0]</metric>
+    <metric>count turtles with [state = 3 and who mod 2 = 1]</metric>
+    <enumeratedValueSet variable="scenarios">
+      <value value="&quot;pop-sans-asymptomatique&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="rayon">
+      <value value="4"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="quarantaine">
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-immuniser">
+      <value value="0.03"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-symptomatiques">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-asymptomatiques">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-mort">
+      <value value="0.02"/>
+    </enumeratedValueSet>
+    <steppedValueSet variable="vitesse-de-deplacement-groupe" first="1" step="0.5" last="5"/>
   </experiment>
 </experiments>
 @#$#@#$#@

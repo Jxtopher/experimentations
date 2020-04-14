@@ -120,3 +120,25 @@ from pylab import savefig
 # plt.savefig("diagnostique-rapide-duree-epidemie.pdf")
 # plt.savefig("diagnostique-rapide-duree-epidemie.svg")
 
+## 2 Groupe de mobilité
+dataset = pd.read_csv('data/exp2-vitesse-de-deplacement-groupe.txt')
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(5, 5))
+sns_plot = sns.lineplot(x="vitesse-de-deplacement-groupe", y="sum [count out-link-neighbors] of turtles with [ who mod 2 = 1]",  data=dataset, label="groupe 1") #, ax=ax
+sns_plot = sns.lineplot(x="vitesse-de-deplacement-groupe", y="sum [count out-link-neighbors] of turtles with [ who mod 2 = 0]",  data=dataset, label="groupe 2") #, ax=ax
+sns_plot.set_xlabel("Vitesse de déplacement pour le groupe 2")
+sns_plot.set_ylabel("Nombre total de transmissions de la maladie")
+plt.grid(True, linestyle='--', linewidth=0.1, alpha=0.7)
+plt.savefig("vitesse-de-deplacement-groupe-transmission.pdf")
+plt.savefig("vitesse-de-deplacement-groupe.svg")
+
+dataset = pd.read_csv('data/exp2-vitesse-de-deplacement-groupe.txt')
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(5, 5))
+sns_plot = sns.lineplot(x="vitesse-de-deplacement-groupe", y="count turtles with [state = 3 and who mod 2 = 1]",  data=dataset, label="groupe 1") #, ax=ax
+sns_plot = sns.lineplot(x="vitesse-de-deplacement-groupe", y="count turtles with [state = 3 and who mod 2 = 0]",  data=dataset, label="groupe 2") #, ax=ax
+sns_plot.set_xlabel("Vitesse de déplacement pour le groupe 2")
+sns_plot.set_ylabel("Nombre total d'infecté")
+plt.grid(True, linestyle='--', linewidth=0.1, alpha=0.7)
+plt.savefig("vitesse-de-deplacement-groupe-nb-infecter.pdf")
+plt.savefig("vitesse-de-deplacement-groupe-nb-infecter.svg")
