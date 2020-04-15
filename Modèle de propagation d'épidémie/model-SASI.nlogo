@@ -271,7 +271,7 @@ p-symptomatiques
 p-symptomatiques
 0
 1
-0.1
+1.0
 0.01
 1
 NIL
@@ -301,7 +301,7 @@ p-immuniser
 p-immuniser
 0
 1
-0.1
+0.05
 0.01
 1
 NIL
@@ -567,41 +567,52 @@ propagation-network
 -1000
 
 MONITOR
-429
-737
-586
-782
-Nombre total d'infecter g1
-sum [count out-link-neighbors] of turtles with [ who mod 2 = 0]
+459
+736
+616
+781
+R0 g1
+mean [count out-link-neighbors] of turtles with [ who mod 2 = 0 and state = 3]
 17
 1
 11
 
 MONITOR
-590
-737
-1020
-782
-Nombre total d'infecter g2
-sum [count out-link-neighbors] of turtles with [ who mod 2 = 1]
+620
+736
+1050
+781
+R0 g2
+mean [count out-link-neighbors] of turtles with [ who mod 2 = 1 and state = 3]
 17
 1
 11
 
 SLIDER
-189
-744
-415
-777
+219
+743
+445
+776
 vitesse-de-deplacement-groupe
 vitesse-de-deplacement-groupe
 1
 5
-1.0
+5.0
 0.01
 1
 NIL
 HORIZONTAL
+
+MONITOR
+459
+685
+617
+730
+R0
+mean [count out-link-neighbors] of turtles with [state = 3]
+17
+1
+11
 
 @#$#@#$#@
 netlogo-headless.bat --threads 8 --model model.nlogo --experiment experiment --table -
@@ -1185,6 +1196,87 @@ NetLogo 6.0.4
       <value value="0.02"/>
     </enumeratedValueSet>
     <steppedValueSet variable="vitesse-de-deplacement-groupe" first="1" step="0.5" last="5"/>
+  </experiment>
+  <experiment name="exp1-R0" repetitions="100" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>(count turtles  - count turtles with [state = 0]) / count turtles</metric>
+    <metric>mean [statistique_nb_ticks_asymptomatique] of turtles with [state != 0]</metric>
+    <metric>mean [statistique_nb_ticks_symptomatique] of turtles with [state != 0]</metric>
+    <metric>mean [count out-link-neighbors] of turtles with [state = 3]</metric>
+    <enumeratedValueSet variable="scenarios">
+      <value value="&quot;pop-asymptomatique&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="rayon">
+      <value value="4"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="quarantaine">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-asymptomatiques">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-symptomatiques">
+      <value value="0.1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-immuniser">
+      <value value="0.01"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-mort">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-sains">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-vacciner">
+      <value value="0"/>
+    </enumeratedValueSet>
+  </experiment>
+  <experiment name="exp2-R0" repetitions="100" runMetricsEveryStep="false">
+    <setup>setup</setup>
+    <go>go</go>
+    <metric>(count turtles  - count turtles with [state = 0]) / count turtles</metric>
+    <metric>mean [statistique_nb_ticks_asymptomatique] of turtles with [state != 0]</metric>
+    <metric>mean [statistique_nb_ticks_symptomatique] of turtles with [state != 0]</metric>
+    <metric>mean [count out-link-neighbors] of turtles with [state = 3]</metric>
+    <enumeratedValueSet variable="scenarios">
+      <value value="&quot;pop-sans-asymptomatique&quot;"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="density">
+      <value value="0.04"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="rayon">
+      <value value="4"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="quarantaine">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-symptomatiques">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-asymptomatiques">
+      <value value="1"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-immuniser">
+      <value value="0.05"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-mort">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-mort">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-sains">
+      <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="p-vacciner">
+      <value value="0"/>
+    </enumeratedValueSet>
   </experiment>
 </experiments>
 @#$#@#$#@
