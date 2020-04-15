@@ -597,7 +597,7 @@ vitesse-de-deplacement-groupe
 vitesse-de-deplacement-groupe
 1
 5
-5.0
+1.0
 0.01
 1
 NIL
@@ -1235,6 +1235,9 @@ NetLogo 6.0.4
     <enumeratedValueSet variable="p-vacciner">
       <value value="0"/>
     </enumeratedValueSet>
+    <enumeratedValueSet variable="vitesse-de-deplacement-groupe">
+      <value value="1"/>
+    </enumeratedValueSet>
   </experiment>
   <experiment name="exp2-R0" repetitions="100" runMetricsEveryStep="false">
     <setup>setup</setup>
@@ -1276,6 +1279,9 @@ NetLogo 6.0.4
     </enumeratedValueSet>
     <enumeratedValueSet variable="p-vacciner">
       <value value="0"/>
+    </enumeratedValueSet>
+    <enumeratedValueSet variable="vitesse-de-deplacement-groupe">
+      <value value="1"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
