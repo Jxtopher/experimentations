@@ -26,12 +26,12 @@ mkdir -p "images_with_ticks"
 # Add ticks in pic
 for j in {00000..198}
 do
-    convert -font helvetica -fill black -pointsize 50 -draw "text 730,35 '$j'" $DIR_PATH_IMG/square-wave-$j.png $DIR_PATH_WITH_MSG/$NAME_FILE$j.png
+    convert -font helvetica -fill black -pointsize 25 -draw "text 375,21 '$j'" $DIR_PATH_IMG/square-wave-$j.png $DIR_PATH_WITH_MSG/$NAME_FILE$j.png
 done
 
 
-img to video
+# img to video
 mencoder mf://$DIR_PATH_WITH_MSG/*.png -mf w=800:h=600:fps=5:type=png -ovc copy -oac copy -o output.avi
 
-# # video to gif
+# video to gif
 ffmpeg -i output.avi -vf format=gray   out.gif
