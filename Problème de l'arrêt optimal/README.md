@@ -1,4 +1,4 @@
-# Probabilities of the dice
+# Arrêt optimal
 
 
 <p align="center">
