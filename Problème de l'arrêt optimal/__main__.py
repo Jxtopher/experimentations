@@ -31,8 +31,8 @@ def oracle(number_list: list) -> int:
     return np.amax(number_list)
 
 if __name__ == '__main__':
-    number_of_experiences = 500#1000
-    sample_size = 2#100
+    number_of_experiences = 1000
+    sample_size = 100
     step = 0.1
     x = np.arange(step, 1 + step, step)
     y = []
@@ -81,7 +81,6 @@ if __name__ == '__main__':
     plt.grid(True, linestyle='--', linewidth=0.1, alpha=0.7)
     plt.ylabel("Success rate", fontsize=size)
     plt.xlabel("Proportion of the exploration section", fontsize=size)
-    plt.legend(loc=4, bbox_to_anchor=(1, 0.2),prop={'size':size}, fancybox=False) #(loc='upper center', ncol=3, fancybox=True)
     plt.savefig("optimal_stop.pdf", bbox_inches='tight')
     plt.savefig("optimal_stop.svg", bbox_inches='tight')
 
