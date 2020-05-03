@@ -83,8 +83,3 @@ if __name__ == '__main__':
     plt.xlabel("Proportion of the exploration section", fontsize=size)
     plt.savefig("optimal_stop.pdf", bbox_inches='tight')
     plt.savefig("optimal_stop.svg", bbox_inches='tight')
-
-
-
-
-
