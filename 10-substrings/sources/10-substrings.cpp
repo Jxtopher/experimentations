@@ -102,7 +102,7 @@ U64 T(const U64  &min, const U64 &max) {
     return count;
 }
 
-void T_caca(const U64 &min, U64 max, std::promise<U64>&& accumulate_sum) {
+void T_accumulate(const U64 &min, U64 max, std::promise<U64>&& accumulate_sum) {
     accumulate_sum.set_value(T(min,max));
 }
 
@@ -120,7 +120,7 @@ U64 parallelization(const U64 &n) {
     for (unsigned int i = 0, j = 0 ; i < number_of_core ; i++) {
         acc.push_back(std::promise<U64>());
         results.push_back(std::future<U64>(acc[acc.size() -1].get_future()));
-        threads.push_back(std::thread(T_caca, j, (number_of_core - 1) == i ? n : j + part, std::move(acc[acc.size() -1])));
+        threads.push_back(std::thread(T_accumulate, j, (number_of_core - 1) == i ? n : j + part, std::move(acc[acc.size() -1])));
         j += part;
     }
 
