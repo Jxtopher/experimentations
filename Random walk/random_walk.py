@@ -1,11 +1,12 @@
 # see: https://en.wikipedia.org/wiki/Random_walk
+# mp4 to gif : ffmpeg -i output.avi -pix_fmt rgb24  out.gif
 
 from typing import List, Optional, Callable, Tuple
 from math import cos, sin, pi
 from random import randint
 
-
-# matplotlib.use("Agg")
+# import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -109,6 +110,8 @@ class Scene(animation.TimedAnimation):
 
 if __name__ == "__main__":
     turtles = Turtles(500)
+    for turtle in turtles:
+        turtle.set_xy(0,randint(-200,200))
 
     def transition() -> Tuple[List, List]:
         turtles.move_all()
@@ -116,5 +119,5 @@ if __name__ == "__main__":
         return turtles.get_data()
 
     scene = Scene(transition, 20000, -200, 200, -200, 200)
-    scene.show()
-    # scene.save("test_sub.mp4", dpi = 800)
+    # scene.show()
+    scene.save("test_sub.mp4", dpi = 800)
