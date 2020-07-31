@@ -6,7 +6,7 @@ from math import cos, sin, pi
 from random import randint
 
 # import matplotlib
-matplotlib.use("Agg")
+# matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
@@ -119,5 +119,5 @@ if __name__ == "__main__":
         return turtles.get_data()
 
     scene = Scene(transition, 20000, -200, 200, -200, 200)
-    # scene.show()
-    scene.save("test_sub.mp4", dpi = 800)
+    scene.show()
+    # scene.save("test_sub.mp4", dpi = 800)
