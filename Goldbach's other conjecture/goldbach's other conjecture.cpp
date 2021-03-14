@@ -28,7 +28,7 @@
 // @param n a natural number
 // @return true is an composite number, otherwise false
 //
-__inline__ bool is_composite_number(const unsigned int n) {
+inline bool is_composite_number(const unsigned int n) {
     for (unsigned int i = n - 1 ; i > 1 ; i--)
         if (n % i == 0) return true;
     return false;
@@ -41,7 +41,7 @@ __inline__ bool is_composite_number(const unsigned int n) {
 // @param n a natural number
 // @return true is a prime number, otherwise false
 //
-__inline__ bool is_prime(const unsigned int n) {
+inline bool is_prime(const unsigned int n) {
     if (n < 3 || n % 2 == 0)
         return n == 2;
     for (unsigned int i = 3 ; i < static_cast<unsigned int>(sqrt(n)) + 1 ; i+=2) 
@@ -79,7 +79,7 @@ std::list<float> quadratic_equation_solving(const float a, const float b, const 
 // @param n a natural number
 // @return true is valided, otherwise false
 //
-__inline__ bool check(const unsigned int n, const bool show = false) {
+inline bool check(const unsigned int n, const bool show = false) {
     if (is_composite_number(n)) {
         if (show) std::cout<<n<<" ";
         bool find = false;
