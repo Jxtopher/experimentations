@@ -9,3 +9,7 @@
 
 
 
+## Voir 
+
+* http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/td_2a.html
+* https://github.com/rlabbe/Kalman-and-Bayesian-Filters-in-Python
