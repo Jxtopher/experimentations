@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
 
     pylab.figure(figsize=(8, 8), dpi=80)
-    pylab.scatter(x=t, y=dataset, c="black", s=2)
+    pylab.scatter(x=t, y=dataset, c="black", s=2, label="dataset")
 
     pylab.plot(t, uniform_filter1d(dataset, size=20), label="Uniform size=20")
     pylab.plot(t, gaussian_filter1d(dataset, sigma=20), label="Gaussian $\sigma$=20")
