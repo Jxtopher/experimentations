@@ -10,25 +10,35 @@
 
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
 def sub_plot(ax, data):
-    
-    x = np.linspace(data[0][np.argmin(data[0])], data[0][np.argmax(data[0])], 100)
-    ax.plot(x, x * 0, color='red', zorder=1, linewidth=0.3)
-    y = np.linspace(data[1][np.argmin(data[1])], data[1][np.argmax(data[1])], 100)
-    ax.plot(y * 0, y, color='red', zorder=2, linewidth=0.3)
-    ax.scatter(data[0], data[1], marker = "o", s=2, c="black", alpha=0.8, edgecolors='none', zorder=3)
 
+    x = np.linspace(data[0][np.argmin(data[0])], data[0][np.argmax(data[0])], 100)
+    ax.plot(x, x * 0, color="red", zorder=1, linewidth=0.3)
+    y = np.linspace(data[1][np.argmin(data[1])], data[1][np.argmax(data[1])], 100)
+    ax.plot(y * 0, y, color="red", zorder=2, linewidth=0.3)
+    ax.scatter(
+        data[0],
+        data[1],
+        marker="o",
+        s=2,
+        c="black",
+        alpha=0.8,
+        edgecolors="none",
+        zorder=3,
+    )
 
     size = 5
-    #plt.xticks(np.arange(0, np.max(maxXlabel), step=3))
+    # plt.xticks(np.arange(0, np.max(maxXlabel), step=3))
     ax.tick_params(labelsize=size)
     ax.set_ylabel("y", fontsize=size)
     ax.set_xlabel("x", fontsize=size)
     ax.set_title(data[2], fontsize=size)
+
 
 def data(chose):
     if chose == 0:
@@ -36,12 +46,12 @@ def data(chose):
         y = np.random.rand(1000)
         label = "Uniform law"
     elif chose == 1:
-        x = np.random.normal(1, 1,  size=1000)
-        y = np.random.normal(1, 1,  size=1000)
+        x = np.random.normal(1, 1, size=1000)
+        y = np.random.normal(1, 1, size=1000)
         label = r"$\mathcal{N}(0, 1)$"
     elif chose == 2:
-        x = np.random.beta(2, 5,  size=1000)
-        y = np.random.beta(2, 5,  size=1000)
+        x = np.random.beta(2, 5, size=1000)
+        y = np.random.beta(2, 5, size=1000)
         label = r"$Beta(\alpha=2, \beta=5)$"
     elif chose == 3:
         x = np.random.exponential(size=1000)
@@ -73,15 +83,16 @@ def data(chose):
         label = ""
     return x, y, label
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     np.random.seed(seed=None)
 
-    fig, axs = plt.subplots(nrows=3, ncols=3, constrained_layout=True)
+    fig, axs = plt.subplots(figsize=(5, 5), nrows=3, ncols=3, constrained_layout=True)
 
     i = 0
     for ax in axs.flatten():
         sub_plot(ax, data(i))
         i += 1
-    
-    plt.savefig("different-distribution-law-in-2D.pdf", bbox_inches='tight')
-    plt.savefig("different-distribution-law-in-2D.svg", bbox_inches='tight')
+
+    plt.savefig("different-distribution-law-in-2D.pdf", bbox_inches="tight")
+    plt.savefig("different-distribution-law-in-2D.svg", bbox_inches="tight")
