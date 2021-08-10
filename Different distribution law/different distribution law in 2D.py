@@ -16,7 +16,6 @@ import matplotlib.pyplot as plt
 
 
 def sub_plot(ax, data):
-
     x = np.linspace(data[0][np.argmin(data[0])], data[0][np.argmax(data[0])], 100)
     ax.plot(x, x * 0, color="red", zorder=1, linewidth=0.3)
     y = np.linspace(data[1][np.argmin(data[1])], data[1][np.argmax(data[1])], 100)
