@@ -1,3 +1,4 @@
+# See: https://conwaylife.com
 import matplotlib.pyplot as plt
 import numpy as np
 import abc
@@ -96,8 +97,8 @@ class TestMatrix(unittest.TestCase):
         corner3 = self.matrix.get_moore(49 * 50)
         self.assertEqual(len(corner3), 3)
 
-        corner4 = self.matrix.get_moore(49 * 49 - 1)
-        self.assertEqual(len(corner3), 3)
+        corner4 = self.matrix.get_moore(50 * 50 - 1)
+        self.assertEqual(len(corner4), 3)
 
 
 class Cellular_automaton(metaclass=abc.ABCMeta):
@@ -171,5 +172,5 @@ def animation(cellular_automaton: Cellular_automaton):
 
 if __name__ == "__main__":
     # unittest.main()
-    game_of_life = Game_of_life(size=50)
+    game_of_life = Game_of_life(size=100)
     animation(game_of_life)
