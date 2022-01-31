@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import abc
 import unittest
+from matplotlib import colors
 
 
 class Matrix:
@@ -118,7 +119,7 @@ class Game_of_life(Cellular_automaton):
     def __init__(self, size: int) -> None:
         super().__init__(size)
         self.state["DED"] = 0
-        self.state["ALIVE"] = 255
+        self.state["ALIVE"] = 1
         for cell in range(self.matrix.get_number_of_cells()):
             if np.random.rand() < 0.5:
                 self.matrix.set_cell(cell, self.state["ALIVE"])
@@ -135,7 +136,9 @@ class Game_of_life(Cellular_automaton):
                     count_alife += 1
             if self.matrix.get_cell(cell) == self.state["DED"] and count_alife == 3:
                 self.cells_new_state[cell] = self.state["ALIVE"]
-            elif self.matrix.get_cell(cell) == self.state["ALIVE"] and count_alife == 2:
+            elif self.matrix.get_cell(cell) == self.state["ALIVE"] and (
+                count_alife == 2 or count_alife == 3
+            ):
                 continue
             elif self.matrix.get_cell(cell) == self.state["ALIVE"]:
                 self.cells_new_state[cell] = self.state["DED"]
@@ -147,7 +150,7 @@ class Game_of_life(Cellular_automaton):
 
 
 def animation(cellular_automaton: Cellular_automaton):
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(6, 6))
 
     iteration = 0
     while True:
@@ -156,10 +159,14 @@ def animation(cellular_automaton: Cellular_automaton):
         cellular_automaton.compute()
         cellular_automaton.update()
 
-        ax.imshow(cellular_automaton.matrix.get_matrix())
+        ax.imshow(
+            cellular_automaton.matrix.get_matrix(),
+            cmap=colors.ListedColormap(["black", "red"]),
+        )
+        ax.set_axis_off()
         ax.set_title("frame {}".format(iteration))
-        iteration += 1
         plt.pause(0.1)
+        iteration += 1
 
 
 if __name__ == "__main__":
