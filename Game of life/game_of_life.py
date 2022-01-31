@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import abc
+import unittest
 
 
 class Matrix:
     def __init__(self, size: int) -> None:
-        self.matrix = np.zeros((size + 1, size))
+        self.matrix = np.zeros((size, size))
         self.size = size
         self.number_of_cells = size * size
 
@@ -55,16 +56,47 @@ class Matrix:
         ret = np.ndarray(0, dtype=int)
         x, y = self.to_coor(index)
 
-        if x < self.size - 1:
-            ret = np.append(ret, index + 1)
-        if x > 0:
-            ret = np.append(ret, index - 1)
         if y < self.size - 1:
-            ret = np.append(ret, index + self.size)
+            ret = np.append(ret, index + 1)
         if y > 0:
+            ret = np.append(ret, index - 1)
+        if x < self.size - 1:
+            ret = np.append(ret, index + self.size)
+        if x > 0:
             ret = np.append(ret, index - self.size)
 
         return ret
+
+
+class TestMatrix(unittest.TestCase):
+    def test_get_number_of_cells(self):
+        self.matrix = Matrix(50)
+        self.assertEqual(self.matrix.get_number_of_cells(), 50 * 50)
+
+    def test_to_coor(self):
+        self.matrix = Matrix(50)
+        self.assertEqual(self.matrix.to_coor(0), (0, 0))
+        self.assertEqual(self.matrix.to_coor(49), (0, 49))
+        self.assertEqual(self.matrix.to_coor(49 * 50), (49, 0))
+        self.assertEqual(self.matrix.to_coor(50 * 50 - 1), (49, 49))
+
+    def test_get_moore(self):
+        self.matrix = Matrix(50)
+
+        corner1 = self.matrix.get_moore(80)
+        self.assertEqual(len(corner1), 8)
+
+        corner1 = self.matrix.get_moore(0)
+        self.assertEqual(len(corner1), 3)
+
+        corner2 = self.matrix.get_moore(49)
+        self.assertEqual(len(corner2), 3)
+
+        corner3 = self.matrix.get_moore(49 * 50)
+        self.assertEqual(len(corner3), 3)
+
+        corner4 = self.matrix.get_moore(49 * 49 - 1)
+        self.assertEqual(len(corner3), 3)
 
 
 class Cellular_automaton(metaclass=abc.ABCMeta):
@@ -94,7 +126,7 @@ class Game_of_life(Cellular_automaton):
                 self.matrix.set_cell(cell, self.state["DED"])
 
     def compute(self):
-        for cell in range(self.matrix.get_number_of_cells() - 1):
+        for cell in range(self.matrix.get_number_of_cells()):
             neighbors = self.matrix.get_moore(cell)
             count_alife = 0
 
@@ -131,6 +163,6 @@ def animation(cellular_automaton: Cellular_automaton):
 
 
 if __name__ == "__main__":
-    size = 50
-    game_of_life = Game_of_life(size)
+    # unittest.main()
+    game_of_life = Game_of_life(size=50)
     animation(game_of_life)
