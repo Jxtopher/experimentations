@@ -6,7 +6,7 @@ import numpy as np
 import abc
 import unittest
 from matplotlib import colors
-
+from typing import Tuple
 
 class Matrix:
     def __init__(self, size: int) -> None:
@@ -18,7 +18,7 @@ class Matrix:
         x, y = self.to_coor(index)
         self.matrix[x][y] = value
 
-    def to_coor(self, index) -> tuple[int, int]:
+    def to_coor(self, index) -> Tuple[int, int]:
         num_line = index // self.size
         num_col = index - num_line * self.size
         return num_line, num_col
