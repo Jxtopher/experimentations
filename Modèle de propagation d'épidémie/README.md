@@ -1,3 +1,3 @@
 # Modèle SASI 
 
-See : https://jxtopher.github.io/Experimentations/SASI-model.html
+See : https://jxtopher.github.io/experimentations/SASI-model.html
