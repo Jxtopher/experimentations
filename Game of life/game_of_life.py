@@ -1,12 +1,14 @@
 # See: https://conwaylife.com
-from logging import exception
 from click import pass_context
-import matplotlib.pyplot as plt
-import numpy as np
-import abc
-import unittest
+from logging import exception
 from matplotlib import colors
 from typing import Tuple
+
+import abc
+import matplotlib.pyplot as plt
+import numpy as np
+import unittest
+
 
 class Matrix:
     def __init__(self, size: int) -> None:
@@ -122,15 +124,16 @@ class Cellular_automaton(metaclass=abc.ABCMeta):
 
 
 class Game_of_life(Cellular_automaton):
-    def __init__(self, size: int) -> None:
+    def __init__(self, size: int, set_randomly=False) -> None:
         super().__init__(size)
         self.state["DED"] = 0
         self.state["ALIVE"] = 1
-        for cell in range(self.matrix.get_number_of_cells()):
-            if np.random.rand() < 0.5:
-                self.matrix.set_cell(cell, self.state["ALIVE"])
-            else:
-                self.matrix.set_cell(cell, self.state["DED"])
+        if set_randomly:
+            for cell in range(self.matrix.get_number_of_cells()):
+                if np.random.rand() < 0.5:
+                    self.matrix.set_cell(cell, self.state["ALIVE"])
+                else:
+                    self.matrix.set_cell(cell, self.state["DED"])
 
     def load_pattern_RLE(self, rle: str):
         for cell in range(self.matrix.get_number_of_cells()):
@@ -162,9 +165,7 @@ class Game_of_life(Cellular_automaton):
                 if num == "":
                     x += 1
                 else:
-                    cpt = int(num)
-                    for _ in range(cpt):
-                        x += 1
+                    x += int(num)
                     num = ""
             elif c == "o":
                 if num == "":
@@ -248,7 +249,7 @@ def animation(cellular_automaton: Cellular_automaton, savefigs=""):
 
 if __name__ == "__main__":
     # unittest.main()
-    game_of_life = Game_of_life(size=13)
+    game_of_life = Game_of_life(size=14)
     game_of_life.load_pattern_RLE("3ob3o$o5bo$2bobo$b2ob2o$o5bo!")
     print(game_of_life.matrix.matrix)
     animation(game_of_life, "test/xp14_j9d0d9j")
